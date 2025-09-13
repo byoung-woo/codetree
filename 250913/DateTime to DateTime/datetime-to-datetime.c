@@ -5,9 +5,8 @@ int main() {
     scanf("%d %d %d", &A, &B, &C);
     
     int time=0;
-    int minute = 11;
-    int hour = 11;
-    int day = 11;
+    int minute, hour,day = 11;
+
     while (1){
         if(day==A && hour==B && minute==C)
             break;
