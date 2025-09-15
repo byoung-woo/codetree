@@ -6,45 +6,21 @@ int main() {
     
     char *day[7] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     int month[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; 
-    int count = 0;
-    char *day_count;
 
+    // 1월 1일 기준으로 차이를 계산 
 
-    if (m1==m2){
+    int start = d1, target = d2;
 
-        count += d2 - d1;
-    
-    }
+    for (int i = 1; i < m1; i++) start += month[i];
+    for (int i = 1; i < m2; i++) target += month[i];
 
-    else if(m1 < m2){
-    for (int i = m1; i <= m2; i++){
-        if (i == m1){
-            count += month[i] - d1;
-        }
-        else if (i == m2)
-            count += d2; 
-        else
-            count += month[i];    
-    }
-    }
+    int count = target - start;
 
-    else {
-        for (int i = m2; i <= m1; i++){
-            if (i == m2){
-                count += -d2;
-            }
-            else if (i == m1)
-                count += -(month[i] - d1); 
-            else
-                count += -month[i];    
-    }
-    }
-
+    // 음수 보정
     int idx = count % 7;
-    if (idx < 0)
-        idx += 7;
-    day_count = day[idx];
-    printf ("%s", day_count);
+    if (idx < 0) idx += 7;
+
+    printf("%s\n", day[idx]);
 
     // Please write your code here.
     
